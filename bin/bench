@@ -1,0 +1,16 @@
+#!/usr/bin/env node
+
+const path = require('path');
+const program = require('commander');
+const run = require('../lib/run');
+let input;
+
+program
+  .version('0.1.0')
+  .arguments('<directory>')
+  .option('-i, --iterations <n>', 'The number of iterations to run', parseInt)
+  .action((directory) => input = path.resolve(directory))
+  .parse(process.argv);
+
+run(input || path.resolve('bench'), program.iterations || 1);
+
