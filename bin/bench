@@ -1,9 +1,10 @@
-#!/usr/bin/env node
+#! /usr/bin/env node
 
 const path = require('path');
 const program = require('commander');
 const run = require('../lib/run');
-let input;
+
+let input = path.resolve('bench');
 
 program
   .version('0.1.0')
@@ -12,5 +13,6 @@ program
   .action((directory) => input = path.resolve(directory))
   .parse(process.argv);
 
-run(input || path.resolve('bench'), program.iterations || 1);
+let iterations = program.iterations || 1;
 
+run(input, iterations);
