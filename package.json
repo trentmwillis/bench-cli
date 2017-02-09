@@ -4,7 +4,7 @@
   "description": "An easy-to-use CLI for running benchmarks",
   "main": "lib/run.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "mocha test/**/*-test.js --reporter tap"
   },
   "author": "Trent Willis <trentmwillis@gmail.com>",
   "license": "MIT",
@@ -18,5 +18,9 @@
   "files": [
     "bin/",
     "lib/"
-  ]
+  ],
+  "devDependencies": {
+    "mocha": "^3.2.0",
+    "sinon": "^1.17.7"
+  }
 }
