@@ -1,18 +1,22 @@
 {
   "name": "bench-cli",
-  "version": "0.1.0",
+  "version": "0.0.1",
   "description": "An easy-to-use CLI for running benchmarks",
-  "main": "index.js",
+  "main": "lib/run.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "author": "",
-  "license": "ISC",
+  "author": "Trent Willis <trentmwillis@gmail.com>",
+  "license": "MIT",
   "dependencies": {
     "commander": "^2.9.0",
     "walk-sync": "^0.3.1"
   },
   "bin": {
     "bench": "bin/bench"
-  }
+  },
+  "files": [
+    "bin/",
+    "lib/"
+  ]
 }

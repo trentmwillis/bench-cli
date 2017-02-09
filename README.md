@@ -2,6 +2,12 @@
 
 Bench-CLI is an easy-to-use CLI for running benchmarks.
 
+## Installation
+
+```bash
+npm install -g bench-cli
+```
+
 ## Running Benchmarks
 
 Running benchmarks is designed to be super simple and easy. You simply specify a `path` to the directory where your benchmark scenarios are located and then the number of iterations to run for each scenario.
