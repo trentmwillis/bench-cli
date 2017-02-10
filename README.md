@@ -1,5 +1,8 @@
 # Bench-CLI
 
+[![Build Status](https://travis-ci.org/trentmwillis/bench-cli.svg?branch=master)](https://travis-ci.org/trentmwillis/bench-cli)
+[![npm version](https://badge.fury.io/js/bench-cli.svg)](https://badge.fury.io/js/bench-cli)
+
 Bench-CLI is an easy-to-use CLI for running benchmarks.
 
 ## Installation
