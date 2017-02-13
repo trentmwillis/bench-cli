@@ -3,6 +3,8 @@
 const path = require('path');
 const program = require('commander');
 const run = require('../lib/run');
+const mkdirp = require('mkdirp').sync;
+const { dirname, readFileSync, writeFileSync } = require('fs');
 
 let input = path.resolve('bench');
 
@@ -10,9 +12,23 @@ program
   .version('0.1.0')
   .arguments('<directory>')
   .option('-i, --iterations <n>', 'The number of iterations to run', parseInt)
-  .action((directory) => input = path.resolve(directory))
-  .parse(process.argv);
+  .action((directory) => {
+    let iterations = program.iterations || 1;
+    directory = path.resolve(directory) || input;
+    run(directory, iterations);
+  });
 
-let iterations = program.iterations || 1;
+program
+  .command('generate')
+  .alias('g')
+  .description('Generates a new benchmark setup')
+  .option('-d, --directory <directory>', 'Directory for benchmarks')
+  .option('-n, --name <name>', 'The name of the benchmark')
+  .action((options) => {
+    let dir = path.resolve(options.directory) || input;
+    let template = readFileSync(path.resolve(`${__dirname}/../blueprints/benchmark.js`), 'utf8');
+    mkdirp(dir);
+    writeFileSync(path.join(dir, `${options.name}.js`), template);
+  });
 
-run(input, iterations);
+program.parse(process.argv);
