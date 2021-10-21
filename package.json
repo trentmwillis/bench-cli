@@ -6,6 +6,10 @@
   "scripts": {
     "test": "mocha test/**/*-test.js --reporter tap"
   },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/trentmwillis/bench-cli.git"
+  },
   "author": "Trent Willis <trentmwillis@gmail.com>",
   "license": "MIT",
   "dependencies": {
